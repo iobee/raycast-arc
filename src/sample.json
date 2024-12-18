@@ -1,0 +1,781 @@
+[{
+		"title": "JVM之垃圾回收机制（GC） - 掘金",
+		"id": 1,
+		"tabs": [{
+				"title": "看一遍就理解：MVCC原理详解-技术圈",
+				"url": "https://jishuin.proginn.com/p/763bfbd68b5e",
+				"id": "6A765B0E-81DC-449B-8F83-3A64860671A8"
+			},
+			{
+				"title": "看一遍就理解：MVCC原理详解 - 腾讯云开发者社区-腾讯云",
+				"url": "https://cloud.tencent.com/developer/article/1890727",
+				"id": "16A53065-1A6D-48D7-A186-065B3052712F"
+			},
+			{
+				"title": "如何理解数据库事务中的一致性的概念？ - 知乎",
+				"url": "https://www.zhihu.com/question/31346392",
+				"id": "4DDF51A2-986C-4684-B1CC-F0704F74F783"
+			},
+			{
+				"title": "跟面试官侃半小时MySQL事务隔离性，从基本概念深入到实现 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/118658549",
+				"id": "1C4C37CF-465E-464B-B9E0-286FCC35A278"
+			},
+			{
+				"title": "MySQL的锁机制 - 记录锁、间隙锁、临键锁 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/48269420",
+				"id": "7AEF9B1A-F7C0-4C09-BC64-03EEE82D2559"
+			},
+			{
+				"title": "JUC多线程：synchronized锁机制原理 与 Lock锁机制_张维鹏的博客-CSDN博客_synchronized机制",
+				"url": "https://blog.csdn.net/a745233700/article/details/119923661",
+				"id": "2AAAA109-C46A-490F-B5C4-E2FB52443BF6"
+			},
+			{
+				"title": "详细了解 Synchronized 锁升级过程_51CTO博客_synchronized锁升级过程",
+				"url": "https://blog.51cto.com/leonsh/5080545",
+				"id": "8D0F0EAC-3848-4F86-973F-D75DB7E24BE5"
+			},
+			{
+				"title": "不可不说的Java“锁”事 - 美团技术团队",
+				"url": "https://tech.meituan.com/2018/11/15/java-lock.html",
+				"id": "47D79591-C39B-40DE-92AD-EBA05E4F516F"
+			},
+			{
+				"title": "java - Synchronized的底层实现原理(看这篇就够了)_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000041268785",
+				"id": "8544E0F2-BE68-49AA-BA7E-252D60A3B158"
+			},
+			{
+				"title": "面试官：请详细说下synchronized的实现原理 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/377423211",
+				"id": "EA7DCEF6-772E-4AA8-913C-B9B71F80CAFD"
+			},
+			{
+				"title": "Redis原理和机制详解 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/222697530",
+				"id": "D4F0C75B-3D3D-4854-8D32-834F55E8232F"
+			},
+			{
+				"title": "一文理解 Redis 的核心原理与技术！ - 掘金",
+				"url": "https://juejin.cn/post/6964177944667226142",
+				"id": "54FF287B-082E-4986-87C2-7A48818711CF"
+			},
+			{
+				"title": "Redis 面霸篇：从高频问题透视核心原理-51CTO.COM",
+				"url": "https://www.51cto.com/article/667365.html",
+				"id": "F6AB4BA2-FD06-4A01-BFA1-F145FA87772C"
+			},
+			{
+				"title": "java - Redis 缓存雪崩、击穿、穿透_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000022029639",
+				"id": "8AA16A06-9B34-4902-87B4-F29239676D19"
+			},
+			{
+				"title": "java - 【实战问题】-- 缓存穿透，缓存击穿和缓存雪崩的区别以及解决方案_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000039688578",
+				"id": "C295DB10-935D-4E82-9919-F4641391A7D3"
+			},
+			{
+				"title": "♥Redis教程 - Redis知识体系详解♥ | Java 全栈知识体系",
+				"url": "https://pdai.tech/md/db/nosql-redis/db-redis-overview.html",
+				"id": "0129BFBA-1693-4883-BD13-675173BEC27F"
+			},
+			{
+				"title": "负载均衡--一致性hash算法 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/34969168",
+				"id": "ACE11C79-70AF-4960-A6A4-811828A2A497"
+			},
+			{
+				"title": "java - 图解一致性哈希算法_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000021199728",
+				"id": "6766C259-E9C5-4D08-B31C-D880F5A7D803"
+			},
+			{
+				"title": "一致性Hash算法总结与应用 - 张小凯的博客",
+				"url": "https://jasonkayzk.github.io/2022/02/12/%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E4%B8%8E%E5%BA%94%E7%94%A8/",
+				"id": "7D455C7D-C334-4BE9-BAD5-0493BEA069C9"
+			},
+			{
+				"title": "5 分钟搞懂布隆过滤器，亿级数据过滤算法你值得拥有！ - 掘金",
+				"url": "https://juejin.cn/post/6844904007790673933",
+				"id": "628E137E-B368-4A09-9871-D0FA5E2DB3A2"
+			},
+			{
+				"title": "深入浅出数据库索引原理 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/23624390",
+				"id": "B1F2F0A6-505B-4482-94E0-A54DBAA80C0F"
+			},
+			{
+				"title": "mysql - 数据库索引的知识点，你所需要了解的都在这儿了_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000023314270",
+				"id": "F6F9AA78-62BE-4987-91E1-7C1991CF33DE"
+			},
+			{
+				"title": "数据库索引原理及优化-阿里云开发者社区",
+				"url": "https://developer.aliyun.com/article/65126",
+				"id": "B255D681-7B02-4E10-A792-80D1554BC730"
+			},
+			{
+				"title": "数据库索引原理，读懂这篇文章就可以跟面试官掰掰手腕了！ - 墨天轮",
+				"url": "https://www.modb.pro/db/134175",
+				"id": "D6FA4B04-5677-4741-BE10-FBA2D938FD69"
+			},
+			{
+				"title": "面试官：了解二叉树吗，平衡二叉树，红黑树？ - niceyoo - 博客园",
+				"url": "https://www.cnblogs.com/niceyoo/p/13941947.html",
+				"id": "CC60A139-CBDE-464A-9A84-975565CB83D8"
+			},
+			{
+				"title": "老大难的 Java ClassLoader 再不理解就老了 - 掘金",
+				"url": "https://juejin.cn/post/6844903729435508750",
+				"id": "752EC7C7-9D3D-417A-B4B1-2CCBD240E9AF"
+			},
+			{
+				"title": "CS-Notes/Leetcode 题解 - 目录.md at master · CyC2018/CS-Notes · GitHub",
+				"url": "https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md",
+				"id": "DE5CD246-8B28-4EBD-ADF1-2C6D9C0ADFEF"
+			},
+			{
+				"title": "算法 - 「面试必问」leetcode高频题精选_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000037466967",
+				"id": "653ECEE1-CFC4-460B-A21D-B3E1756E4587"
+			},
+			{
+				"title": "如何科学的刷 LeetCode ？ - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/96883783",
+				"id": "7CCD5519-AD7E-4A81-AC94-996167A457F0"
+			},
+			{
+				"title": "LeetCode通关：连刷十四题，回溯算法完全攻略 - 三分恶 - 博客园",
+				"url": "https://www.cnblogs.com/three-fighter/p/15269387.html",
+				"id": "6D6F61ED-2D01-45C6-9EE2-F98AE614BC56"
+			},
+			{
+				"title": "动态规划(重置版) - 力扣加加 - 努力做西湖区最好的算法题解",
+				"url": "https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings/dynamic-programming",
+				"id": "0E5583A1-A2D4-464E-B79E-0405D5503D5D"
+			},
+			{
+				"title": "LeetCode|动态规划入门三题 - 掘金",
+				"url": "https://juejin.cn/post/6984319174126338085",
+				"id": "D8BDA91B-7957-4A4F-97BB-F0CF2235EC65"
+			},
+			{
+				"title": "搞定大厂算法面试之leetcode精讲",
+				"url": "https://xiaochen1024.com/courseware/60b4f11ab1aa91002eb53b18/61963bcdc1553b002e57bf13",
+				"id": "8B310319-75BA-42B0-A67C-74DA3CE73F8C"
+			},
+			{
+				"title": "搜索思想——DFS & BFS（基础基础篇） - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/24986203",
+				"id": "072CA989-29CC-4AE5-AE3D-DF10BA3EC3D2"
+			},
+			{
+				"title": "本周小结！（贪心算法系列二） | 代码随想录",
+				"url": "https://programmercarl.com/%E5%91%A8%E6%80%BB%E7%BB%93/20201203%E8%B4%AA%E5%BF%83%E5%91%A8%E6%9C%AB%E6%80%BB%E7%BB%93.html#%E5%91%A8%E4%B8%80",
+				"id": "8BBE848B-4A38-484B-A48D-D1B14EE29565"
+			},
+			{
+				"title": "经典贪心算法：跳跃游戏 - 腾讯云开发者社区-腾讯云",
+				"url": "https://cloud.tencent.com/developer/article/1880875",
+				"id": "A239A46B-CDF4-49BC-BD42-29C01ED14D1B"
+			},
+			{
+				"title": "图解排序算法(二)之希尔排序 - dreamcatcher-cx - 博客园",
+				"url": "https://www.cnblogs.com/chengxiao/p/6104371.html",
+				"id": "44AD8E2D-4520-40FB-B6AF-46B7AEF1ECB0"
+			},
+			{
+				"title": "【学习笔记】最容易理解的希尔排序（shell sort）讲解 - 掘金",
+				"url": "https://juejin.cn/post/6973862597737054244",
+				"id": "C95457D4-9311-4C24-A2E9-D5DF8AFB567D"
+			},
+			{
+				"title": "[算法总结] 十大排序算法 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/42586566",
+				"id": "A9666B00-5DEF-4890-AF2A-AD85536ACE6B"
+			},
+			{
+				"title": "漫画：什么是希尔排序？ - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/87781731",
+				"id": "DEF7CC6E-905B-4891-A89A-4CDEE13ED395"
+			},
+			{
+				"title": "图解归并排序，带你彻底了解清楚！ - 掘金",
+				"url": "https://juejin.cn/post/6989147825099522078",
+				"id": "DBF774AD-84CD-40F1-A18B-FF7A05B5935A"
+			},
+			{
+				"title": "java - 快速排序为什么这么快？_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000037729210",
+				"id": "A9F56417-BCBC-4662-AC30-9A5FCFEAF0D2"
+			},
+			{
+				"title": "图解排序算法(三)之堆排序 - dreamcatcher-cx - 博客园",
+				"url": "https://www.cnblogs.com/chengxiao/p/6129630.html",
+				"id": "4CCD9F4A-66FD-423F-8856-D3FA185F055C"
+			},
+			{
+				"title": "一文讲懂堆排序，解决topK问题 - 掘金",
+				"url": "https://juejin.cn/post/6986510821291638815",
+				"id": "CDCB3EA7-74BF-43C3-92BD-985B90368865"
+			},
+			{
+				"title": "十大经典排序算法（动图演示） - 一像素 - 博客园",
+				"url": "https://www.cnblogs.com/onepixel/p/7674659.html",
+				"id": "41402D76-C0AC-48F7-A3DB-6434DAAE3BB3"
+			},
+			{
+				"title": "java - 史上最清晰的「归并排序」讲解_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000037644412",
+				"id": "5BFE7010-6B05-45B2-8593-6A62970729BB"
+			},
+			{
+				"title": "如何寻找最长回文子串 - labuladong 的算法小抄",
+				"url": "https://mirrors.gitcode.host/labuladong/fucking-algorithm/interview/TheLongestPalindromicSubstring.html",
+				"id": "6611BE61-0330-4ED6-864A-E724C13B699C"
+			},
+			{
+				"title": "最长回文子串问题（四种方法） | 春水煎茶 - 王超的个人博客",
+				"url": "https://writings.sh/post/algorithm-longest-palindromic-substring",
+				"id": "853F17E4-CD7A-4846-84CB-CC86546B6D4E"
+			},
+			{
+				"title": "LeetCode算法学习之--数组--三数之和 - 掘金",
+				"url": "https://juejin.cn/post/6988423535773351950",
+				"id": "41CAD029-277C-41D5-A073-1CB441B9AC79"
+			},
+			{
+				"title": "超详细！详解一道高频算法题：括号生成_吴师兄学算法",
+				"url": "https://www.cxyxiaowu.com/6469.html",
+				"id": "160B0301-0AB7-4D5D-A6C7-DBA8C212C0AB"
+			},
+			{
+				"title": "分布式事务的防悬挂，空回滚_佟印龙的博客-CSDN博客_空回滚",
+				"url": "https://blog.csdn.net/weixin_44583135/article/details/120459545",
+				"id": "E56FBBC2-CB32-487C-81BA-4275F84AB800"
+			},
+			{
+				"title": "分布式事务—基础篇 - 别动我的猫 - 博客园",
+				"url": "https://www.cnblogs.com/zeussbook/p/11778241.html",
+				"id": "ACB6E1F6-01E3-4ECA-8358-88F7879D91B0"
+			},
+			{
+				"title": "再有人问你分布式事务，把这篇扔给他 - 掘金",
+				"url": "https://juejin.cn/post/6844903647197806605",
+				"id": "CD485286-FFAF-4EAD-ACF5-574DC38697A2"
+			},
+			{
+				"title": "ThreadLocal为啥要用弱引用？不知道 - 腾讯云开发者社区-腾讯云",
+				"url": "https://cloud.tencent.com/developer/article/1769423#:~:text=%E6%9C%80%E5%90%8E%E6%80%9D%E8%80%83%E5%87%BA%E6%9D%A5%E5%BE%97%E7%AD%94%E6%A1%88,%E5%85%B6%E8%AE%BE%E7%BD%AE%E4%B8%BA%E5%BC%BA%E5%BC%95%E7%94%A8%E3%80%82%E3%80%8D",
+				"id": "85119C0F-E0CE-425F-BDD8-B4A90A214B6E"
+			},
+			{
+				"title": "ThreadLocal与弱引用 - 掘金",
+				"url": "https://juejin.cn/post/6932762461414096904",
+				"id": "2B3815BA-98CD-467E-B531-DF7267B220A9"
+			},
+			{
+				"title": "java - Java基础进阶之ThreadLocal详解_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000018399795",
+				"id": "6B49448B-6771-44F8-A850-A8CBD1D6A89A"
+			},
+			{
+				"title": "ThreadLocal的原理、作用、使用弱引用原因、应用举例 - 阿译 - 博客园",
+				"url": "https://www.cnblogs.com/shen-qian/p/12108655.html",
+				"id": "788C6513-7F7A-431B-8B0E-3D9EFB3E19B5"
+			},
+			{
+				"title": "秒杀系统设计 - 掘金",
+				"url": "https://juejin.cn/post/6861749238466576397",
+				"id": "C3C2F607-50C0-4A63-B754-028AADDD47F8"
+			},
+			{
+				"title": "架构设计 - 一个秒杀系统的设计思考_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000020970562",
+				"id": "53010694-22BC-4261-92ED-BC37D40438B7"
+			},
+			{
+				"title": "如何设计一个秒杀系统",
+				"url": "https://time.geekbang.org/column/intro/127?tab=intro",
+				"id": "366D4290-25D1-4C14-AEA1-327FFE1FCC00"
+			},
+			{
+				"title": "如何设计一个优秀的秒杀系统？ - 掘金",
+				"url": "https://juejin.cn/post/6998073537474871310",
+				"id": "FD87C602-28B9-4CA0-BFAC-000773F8BC69"
+			},
+			{
+				"title": "如何设计一个秒杀系统 — G.Fukang's Blog",
+				"url": "https://gongfukangee.github.io/2019/06/09/SecondsKill/",
+				"id": "48414094-834F-4484-80CB-0E6BA60C1DF0"
+			},
+			{
+				"title": "面霸：秒杀系统如何设计？ - TeqNG",
+				"url": "https://www.teqng.com/2021/09/07/%E9%9D%A2%E9%9C%B8%EF%BC%9A%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%EF%BC%9F/",
+				"id": "7E95826E-2249-48E3-8165-D03EE3F734FA"
+			},
+			{
+				"title": "如何设计秒杀系统？ - 知乎",
+				"url": "https://www.zhihu.com/question/54895548",
+				"id": "D397FA14-28EA-4781-B528-A4CA54229A00"
+			},
+			{
+				"title": "关于高可用的系统 | 酷 壳 - CoolShell",
+				"url": "https://coolshell.cn/articles/17459.html",
+				"id": "451E9800-067D-407F-9999-44875CCA047F"
+			},
+			{
+				"title": "大促不慌，浅谈蘑菇街的稳定性保障 - 又拍云",
+				"url": "https://www.upyun.com/tech/article/175/%E5%A4%A7%E4%BF%83%E4%B8%8D%E6%85%8C%EF%BC%8C%E6%B5%85%E8%B0%88%E8%98%91%E8%8F%87%E8%A1%97%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%BF%9D%E9%9A%9C.html",
+				"id": "E579C400-9AC5-4999-93E9-CC8D724DDDD4"
+			},
+			{
+				"title": "如何完美进行大促保障（一）_51CTO博客_大促保障方案",
+				"url": "https://blog.51cto.com/u_15098014/2614178",
+				"id": "8B1BBD6F-C207-4800-97C1-49E07F7BFA67"
+			},
+			{
+				"title": "稳定性保障6步走：高可用系统大促作战指南！-阿里云开发者社区",
+				"url": "https://developer.aliyun.com/article/782540",
+				"id": "C276F6EB-5878-4D06-A2CE-AE639F7D053C"
+			},
+			{
+				"title": "面试官：如果你是大促技术负责人-云社区-华为云",
+				"url": "https://bbs.huaweicloud.com/blogs/374244",
+				"id": "971493DA-E443-41E8-B5E7-AEDC0867A916"
+			},
+			{
+				"title": "大型系统如何做一体化监控？_运维_王庆友_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/pulzj6tjdblexcfehaws",
+				"id": "83D5BD38-0176-4040-8507-6CDE838189BA"
+			},
+			{
+				"title": "如何理解高可用？_51CTO博客_怎么理解高内聚低耦合",
+				"url": "https://blog.51cto.com/jackl/4869421",
+				"id": "442AF25A-D097-435E-8F84-DD02AA521A28"
+			},
+			{
+				"title": "终于有人把 \" 高可用 \" 说清楚了！-51CTO.COM",
+				"url": "https://www.51cto.com/article/647086.html",
+				"id": "2A15A5BE-3C87-480D-9768-338DE63DAA3A"
+			},
+			{
+				"title": "如何做好项目管理工作？ - 腾讯云开发者社区-腾讯云",
+				"url": "https://cloud.tencent.com/developer/article/1629446",
+				"id": "8085A986-6DA3-4950-8DC5-C7DF793C22EF"
+			},
+			{
+				"title": "架构设计实践五部曲（一）：架构与架构图_架构_胡斌_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/b1fcll8mk9l9qe45zxp6",
+				"id": "95E36A59-2F25-4477-848C-8FA606F8F773"
+			},
+			{
+				"title": "架构设计实践五部曲（五）：技术架构的战略和战术原则_架构_胡斌_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/RQDwWxDcwbxtwU8LBFSG",
+				"id": "69A5DC9D-8576-465F-9965-6D4175091107"
+			},
+			{
+				"title": "架构设计实践五部曲（四）：单体式与分布式的应用架构_架构_胡斌_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/ZzI05OBgks2kspUWa5y7",
+				"id": "E756628E-FCAC-4221-8120-8BFE5501BDE1"
+			},
+			{
+				"title": "什么是架构？什么是好的架构？什么是好的架构师？ - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/491144406",
+				"id": "4A0F3AEC-261F-4961-837B-F8A156DDB3C3"
+			},
+			{
+				"title": "如何做架构设计 101 - 掘金",
+				"url": "https://juejin.cn/post/6956851455999344670",
+				"id": "7BCCF8CD-47E5-4904-946E-5B756098A05B"
+			},
+			{
+				"title": "架构设计入门知识 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/153030979",
+				"id": "D5146851-2660-4644-B279-98B110A06F5E"
+			},
+			{
+				"title": "架构设计——架构知识体系 - 文章详情",
+				"url": "https://z.itpub.net/article/detail/063D1A3433FFA4420D3DCFE3598BD7F4",
+				"id": "BDB3AF55-176A-4F2E-834E-75513ABD452B"
+			},
+			{
+				"title": "什么才是真正的架构设计？你又知道多少？_个人文章 - SegmentFault 思否",
+				"url": "https://segmentfault.com/a/1190000023122582",
+				"id": "12F48286-03ED-4067-814C-59C15CFA64C6"
+			},
+			{
+				"title": "架构师成长系列：如何做高层架构设计（方法经验总结，纯干货）_51CTO博客_架构设计方法论",
+				"url": "https://blog.51cto.com/u_14590465/4244404",
+				"id": "C8EB4D63-6DB8-4BBF-BE49-9A37204A0F19"
+			},
+			{
+				"title": "架构设计实践五部曲（三）：从领域模型提取数据架构_架构_胡斌_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/gecWdtRC85LD3kfXlWNU",
+				"id": "42A3694C-9145-49D7-89F5-7C60AFAEAC20"
+			},
+			{
+				"title": "架构设计实践五部曲（二）：业务架构与产品架构设计实践_架构_胡斌_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/5A8LiWThDdHpkjeKgWLk",
+				"id": "F11870F9-B17E-4B09-9391-E3008EDAED5E"
+			},
+			{
+				"title": "系统架构系列（一）：如何用公式定义该概念？_文化 & 方法_高福来_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/fwhQ-dIN2xTUH6zNLYZp",
+				"id": "A0108175-1433-4D9C-863C-FDF77ADDF504"
+			},
+			{
+				"title": "我做系统架构的一些原则 | 酷 壳 - CoolShell",
+				"url": "https://coolshell.cn/articles/21672.html",
+				"id": "4AE9CD76-7045-48A8-B90C-5E312F028513"
+			},
+			{
+				"title": "系统架构系列(六)：技术架构要解决什么问题？_语言 & 开发_高福来_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/inbgrqm2liv1edzeifyd",
+				"id": "3E587C6D-DBED-4303-9ABD-BF24E6AC1107"
+			},
+			{
+				"title": "【数据结构】BitMap的理解与应用_刘二郎的博客-CSDN博客",
+				"url": "https://blog.csdn.net/qq_32924343/article/details/89089814",
+				"id": "36A7FEC1-23AD-4278-A971-CBABD001BF2A"
+			},
+			{
+				"title": "数据库和缓存如何保证一致性？ | 小林coding",
+				"url": "https://xiaolincoding.com/redis/architecture/mysql_redis_consistency.html#%E8%80%81%E6%9D%BF%E5%8F%91%E9%A5%BC%E5%95%A6",
+				"id": "C5D39CA0-7711-42DC-B903-C3ABFC116CA7"
+			},
+			{
+				"title": "白话解析：一致性哈希算法 consistent hashing-朱双印博客",
+				"url": "https://www.zsythink.net/archives/1182",
+				"id": "219D6CD3-6069-435F-B6AA-B003B8A67D7F"
+			},
+			{
+				"title": "再过半小时，你就能明白kafka的工作原理了 - 知乎",
+				"url": "https://zhuanlan.zhihu.com/p/68052232",
+				"id": "54CF0A6E-A2CC-40FB-8C90-A3034B7D5C86"
+			},
+			{
+				"title": "消息中心篇之RocketMq与Kafka选型 - 腾讯云开发者社区-腾讯云",
+				"url": "https://cloud.tencent.com/developer/article/1729586",
+				"id": "31A4478A-CE2D-4BB3-B317-875B3FAFC799"
+			},
+			{
+				"title": "MQ初窥门径【面试必看的Kafka和RocketMQ存储区别】 - lewis09 - 博客园",
+				"url": "https://www.cnblogs.com/lewis09/p/11168902.html",
+				"id": "105EE99B-FE57-4940-81AB-2F3F1F57ED5A"
+			},
+			{
+				"title": "Kafka架构及基本原理简析 - 掘金",
+				"url": "https://juejin.cn/post/7035075668874362910",
+				"id": "C46BBBA0-BFB7-4F8F-9767-234500680AE7"
+			},
+			{
+				"title": "再探蚂蚁中间件：SOFA - 简书",
+				"url": "https://www.jianshu.com/p/e3dca8d5e9ee",
+				"id": "257948CB-61FD-49D2-99EA-66F86DA12D4B"
+			},
+			{
+				"title": "十年风雨！看蚂蚁金服SOFA 分布式架构演进_文化 & 方法_技术琐话_InfoQ精选文章",
+				"url": "https://www.infoq.cn/article/2kg9sfvroqm94ay6sqwz",
+				"id": "4CB08240-C718-4EA3-B670-2981A8519539"
+			},
+			{
+				"title": "直击面试，聊聊 GC 机制 - 楼下小黑哥 - 博客园",
+				"url": "https://www.cnblogs.com/goodAndyxublog/p/12051482.html",
+				"id": "4FF7E7AA-4F56-4068-B00F-729C34CC05F8"
+			},
+			{
+				"title": "JVM之垃圾回收机制（GC） - 掘金",
+				"url": "https://juejin.cn/post/7123853933801373733",
+				"id": "EC857C47-3E76-4447-AE5C-934A763A04A8"
+			}
+
+		]
+	},
+	{
+		"title": "Blizzards",
+		"id": 2,
+		"tabs": [
+
+		]
+	},
+	{
+		"title": "JavaScript/HTML格式化 - JSON中文网",
+		"id": 3,
+		"tabs": [{
+				"title": "Google",
+				"url": "https://www.google.com.hk/search?q=fuse+search+%E5%9F%BA%E4%BA%8E%E5%8E%86%E5%8F%B2%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95&newwindow=1&sca_esv=0c3a6d1f3aa5848b&sxsrf=ADLYWIJ4iVPSu-2OTry_fOpjS72O6fYRVw%3A1734238558664&ei=XmFeZ4iYKMzcwN4PqsLywAc&ved=0ahUKEwiIv_qJ_qiKAxVMLtAFHSqhHHgQ4dUDCBA&uact=5&oq=fuse+search+%E5%9F%BA%E4%BA%8E%E5%8E%86%E5%8F%B2%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95&gs_lp=Egxnd3Mtd2l6LXNlcnAiJGZ1c2Ugc2VhcmNoIOWfuuS6juWOhuWPsuaQnOe0ouiusOW9lUjGHVCfE1j6G3ACeAGQAQCYAegHoAHlEaoBCTQtMS4wLjEuMbgBA8gBAPgBAZgCAKACAJgDAIgGAZIHAKAHgAU&sclient=gws-wiz-serp",
+				"id": "783724AA-46A2-4F3B-B9C4-FD1B76EB7DB0"
+			},
+			{
+				"title": "一瞬间 - 丽江小倩 - 单曲 - 网易云音乐",
+				"url": "https://music.163.com/#/song?id=274859",
+				"id": "3C24D281-68EF-4226-9BE3-7731A56681E9"
+			},
+			{
+				"title": "Introducing Mercury OS. A speculative vision of the operating… | by Jason Yuan | UX Collective",
+				"url": "https://uxdesign.cc/introducing-mercury-os-f4de45a04289",
+				"id": "6414FCA7-268D-4D76-87AF-7F94E3C042F7"
+			},
+			{
+				"title": "Matters",
+				"url": "https://matters.news/",
+				"id": "0A984BD3-2D1C-4A0D-BEC0-20055E10A826"
+			},
+			{
+				"title": "QQ邮箱",
+				"url": "https://mail.qq.com/cgi-bin/frame_html?sid=2hP-jK7c46lCJFAz&r=c0a6141e6462d5999ec2fc48366b754e&lang=zh",
+				"id": "B3CA5588-1A70-4897-95DD-EC36A8DC986B"
+			},
+			{
+				"title": "Editors’ picks for 2022: ‘How firm is Xi Jinping’s grip on power?’ | The Strategist",
+				"url": "https://www.aspistrategist.org.au/editors-picks-for-2022-how-firm-is-xi-jinpings-grip-on-power/",
+				"id": "8384345C-7445-4EE5-AE0D-6995E8D8B1B6"
+			},
+			{
+				"title": "Backstory | Tesla BluetoothLE API (Unofficial)",
+				"url": "https://teslabtapi.lexnastin.com/docs/backstory",
+				"id": "F6C0106C-C2EB-41AF-A794-09E384528F84"
+			},
+			{
+				"title": "万字解析 | 用好 Mac 第一步，全面掌握访达与 macOS 文件系统 - 少数派",
+				"url": "https://sspai.com/post/77984?utm_source=twitter&utm_medium=social",
+				"id": "A06D3E2F-21CA-4C5E-9E3A-E17115FE7396"
+			},
+			{
+				"title": "推出ChatGPT的OpenAI股权投资协议设计的独特性 - FT中文网",
+				"url": "https://d2b0shd2ijglgd.cloudfront.net/story/001098641?continueFlag=716d3a30257ded8b58ee8c8ea59fdfbe",
+				"id": "069EA90A-1CFD-4844-815A-080867A64437"
+			},
+			{
+				"title": "Dropbox - 410",
+				"url": "https://ucc6da6184ccf3a50655e3b7cae8.previews.dropboxusercontent.com/p/orig/ABzmI76hqX5oVrKAoDEteWH0vsj-Dw7829jbxwmm2tV_RYQvL41kdyZXyHJ3z1m97kii7GAQa06aCg4JWlRpoYWzJdcBAq7kv4NS2X2XbF5v-XkMTSS4NmtFW28IncU6Jwk_F8R0jDTDfaZChughyUfcNfGKZmqiyuePwXcCUy8mjVyBmhDsqVTA6UhEgESv_7yJA1FK7ZNbbxryMrBwbaK3VoP5rocTi6q_JH8dxmcKFXZPwQTM3ChEnYcboiZOkSvXKzXQsdgkeIrmOm36mSgDzd5ZtR9ewhcX0X90HCgNWT_4P15cRk2ghe8YU5p6_r_RT0fS5E5c4ig7WMACLVsc6_Jq0NI2h04-ZtHwcdsQUxpA-QmrzBMHCtFvsRsHyWdhIbiexotBTsm39-x20LMtUw-3y-c27ULt9pEGdR_Tug/p.pdf",
+				"id": "9BF45412-144A-43B2-A582-8C5E5D50E9AD"
+			},
+			{
+				"title": "Why students should use Arc browser | by PKM Beth | Feb, 2023 | Medium",
+				"url": "https://medium.com/@pkmbeth/why-students-should-use-arc-browser-d30e4810fbcb",
+				"id": "CBBEAD4C-E993-4496-9D2F-9FFE4BCA4E78"
+			},
+			{
+				"title": "phind.com",
+				"url": "https://phind.com/",
+				"id": "23BB8828-E347-441C-A9BD-308628764E9F"
+			},
+			{
+				"title": "New chat",
+				"url": "https://chat.openai.com/chat",
+				"id": "F7A662ED-9C26-4BCF-A509-784AADE2379C"
+			},
+			{
+				"title": "Get a virtual phone number. Temporary number. SMS service activation",
+				"url": "https://sms-activate.org/getNumber",
+				"id": "1A2D51EB-5CF0-4A0A-8409-8CAB1F15BC7B"
+			},
+			{
+				"title": "[保姆级教程] 国内如何注册使用 ChatGPT - Justin写字的地方",
+				"url": "https://zblogs.top/how-to-register-openai-chatgpt-in-china/",
+				"id": "EA5D3777-5C19-4541-BEFF-6634FF33713C"
+			},
+			{
+				"title": "瞬息全宇宙 HD中字完整版免费在线观看-555电影",
+				"url": "https://www.o8tv.com/vodplay/354594-6-1.html",
+				"id": "9CD0B06D-AF42-47B5-BAA9-65BC124CA037"
+			},
+			{
+				"title": "一瞬间 - 丽江小倩 - 单曲 - 网易云音乐",
+				"url": "https://y.music.163.com/m/song?id=274859",
+				"id": "871B7DF3-376D-44CE-92DB-4A2484D2B1F1"
+			},
+			{
+				"title": "Forefront Chat",
+				"url": "https://chat.forefront.ai/",
+				"id": "28FD40D2-0D33-4E96-8DBA-39BBE2E0B320"
+			},
+			{
+				"title": "Watch trending videos for you | TikTok",
+				"url": "https://www.tiktok.com/foryou",
+				"id": "078C4B00-9894-49CB-8B35-D439A38A89E4"
+			},
+			{
+				"title": "Home / Twitter",
+				"url": "https://twitter.com/home",
+				"id": "A1A8E916-E3A0-4DFB-860E-2DD748079D8C"
+			},
+			{
+				"title": "蜜糖商店MetShop·一站式流媒体合租平台",
+				"url": "https://metshop.vip/#/myfleet?charset=utf-8&out_trade_no=1685140852-14694-3-130912-3&method=alipay.trade.page.pay.return&total_amount=40.50&sign=id3dvnzcmH%2BarVVWCRzzkV7snEmMHicIFjNk2XPqiumGXhe4Vi94jMLPyM4qIkHC%2BBz2umPDwlaPcdI94uZdPvz3MD3rWnEvhOS8lzmiJMPL6kOkSdrMxSDPP7BlVXC91MNISJKU8%2FVobsaxfg4bAuJZsh5dxRWHtSaMcq2nvjcf4%2F85wFCnjhbbBi%2B0KbmtlVPvf4twKQ6uesXywy4ss32dzueaJ0MWD7nPgShEllZdGJvuZVdNvp874PRkIY2g8Ed%2FQtX%2FzhCWpmR1aFGESVl%2BIpQzOv10BAI%2FW4OyIfVkjI0VFNNf0gJs9wqNb03Aqx54NkhS9rLlPotf%2Fv9Bsw%3D%3D&trade_no=2023052722001439051455777313&auth_app_id=2021002145685006&version=1.0&app_id=2021002145685006&sign_type=RSA2&seller_id=2088141199583876&timestamp=2023-05-27%2006%3A41%3A24",
+				"id": "8B33604D-BC7F-4D2B-8F50-6A008AE07A01"
+			},
+			{
+				"title": "Disney+ | Video Player",
+				"url": "https://www.disneyplus.com/video/b54c7c82-c071-4368-a6a5-28cd0cbb8e33",
+				"id": "852E5EBB-D87E-442A-8BE5-2B2D4C31E22C"
+			},
+			{
+				"title": "小红书 - 你的生活指南",
+				"url": "https://www.xiaohongshu.com/explore",
+				"id": "F246276F-5BF4-44C1-8C55-4BABE4AF57E2"
+			},
+			{
+				"title": "OpenAI's plans according to Sam Altman",
+				"url": "https://humanloop.com/blog/openai-plans",
+				"id": "B79F826B-541A-4610-8585-96754DB13D4F"
+			},
+			{
+				"title": "低头不见抬头见 • Anyway.FM 设计杂谈 • UI 设计师 JJ 和 Leon 主播的设计播客 Podcast",
+				"url": "https://anyway.fm/car-hud/",
+				"id": "6076A853-F608-4E2C-BB47-3CF7748DED86"
+			},
+			{
+				"title": "(2) YouTube",
+				"url": "https://www.youtube.com/",
+				"id": "B55C9BC3-89BB-4528-A03E-E2AB13310E20"
+			},
+			{
+				"title": "相册本纪念册照片书定制手工diy制作写真打印成洗做成册情侣毕业-tmall.com天猫",
+				"url": "https://detail.tmall.com/item.htm?abbucket=7&id=684246081629&ns=1&spm=a230r.1.14.141.186239c16SfJ5U",
+				"id": "E739D8A7-434F-48FB-B4F6-637730E3805E"
+			},
+			{
+				"title": "薬師寺寛邦 キッサコ / Kanho Yakushiji (@kanhoyakushiji_kissaquo) | TikTok",
+				"url": "https://www.tiktok.com/@Kanhoyakushiji_kissaquo",
+				"id": "DA5C6005-FE22-45C1-8A19-BC6A4155E969"
+			},
+			{
+				"title": "AmyMind",
+				"url": "https://amymind.com/mindmap/new",
+				"id": "6249322B-BEF7-4790-B3F3-90D31476DD28"
+			},
+			{
+				"title": "YaPan",
+				"url": "https://pan.ccof.cc/",
+				"id": "43042120-A2AC-41DB-AF0B-9A62514CBDFF"
+			},
+			{
+				"title": "《动手学深度学习》 — 动手学深度学习 2.0.0 documentation",
+				"url": "https://zh-v2.d2l.ai/",
+				"id": "BEF0D9B7-75C1-4338-90D9-74CAAC78BAF3"
+			},
+			{
+				"title": "MarkMark 开放免费公测，更易用的稍后阅读工具来了！",
+				"url": "https://mp.weixin.qq.com/s/fA6hkdip_ogY5Wwf27SnCQ",
+				"id": "899B3F0F-03F3-44C9-A8C1-6F597AAB3CA9"
+			},
+			{
+				"title": "【AI机器学习入门与实战】AI 人工智能介绍-CSDN博客",
+				"url": "https://codertao.blog.csdn.net/article/details/131132309",
+				"id": "C78C6776-D15C-4BA1-B560-E6F12020F23B"
+			},
+			{
+				"title": "照片组合拼图制作 - 懒人图云",
+				"url": "https://www.lanrentuyun.com/ecollage/07078f20f18dd64a80961340f7417856",
+				"id": "9CB4A9DA-C916-4E74-94FC-965E603A2492"
+			},
+			{
+				"title": "cnblogs.com/subconscious/p/5058741.html",
+				"url": "https://www.cnblogs.com/subconscious/p/5058741.html",
+				"id": "2E2395F1-6C96-4772-B70E-17B4C8EFD255"
+			},
+			{
+				"title": "artifact.news/posts/p/6098425028425260481?s=3122623347930159556",
+				"url": "https://artifact.news/posts/p/6098425028425260481?s=3122623347930159556",
+				"id": "9665185E-9B16-4E33-BA25-CB3098E6FAD9"
+			},
+			{
+				"title": "zhihu.com/question/22047061?utm_id=0",
+				"url": "https://www.zhihu.com/question/22047061?utm_id=0",
+				"id": "D50ABF4A-9E16-4B99-87E1-63A4C5A8FB13"
+			},
+			{
+				"title": "Find 'Taylor Swift' on TikTok | TikTok Search",
+				"url": "https://www.tiktok.com/search?q=Taylor%20Swift&t=1711126439235",
+				"id": "E3BA4EC0-CD94-4A5D-AA77-AE86824AA74B"
+			},
+			{
+				"title": "Mencius Commentary",
+				"url": "https://www.shidianguji.com/book/SBCK012/chapter/SBCK012_3?page_from=home_page&version=10",
+				"id": "075BF877-755C-4780-946A-A433BFA6E524"
+			},
+			{
+				"title": "NDS Skins",
+				"url": "https://delta-skins.github.io/nds.html",
+				"id": "3B7E1141-4A5F-4CBD-BD2E-B3662AB813C4"
+			},
+			{
+				"title": "Giffgaff eSIM Postman",
+				"url": "https://www.nodeseek.com/post-76162-1",
+				"id": "4E975CF1-D49F-4156-BCA9-1FD8D70620AB"
+			},
+			{
+				"title": "AI Agent Platform",
+				"url": "https://www.coze.cn/",
+				"id": "F9FDB9C9-C3DE-4C6D-A47A-6DC86F4682D9"
+			},
+			{
+				"title": "AI Chatbot Platform",
+				"url": "https://www.coze.com/?utm_source=iplaysoft.com&hmsr=iplaysoft.com",
+				"id": "D5C4E4D2-9CC8-4119-B806-5ACF739FCB1A"
+			},
+			{
+				"title": "Daily Reading Sources",
+				"url": "https://siphon.ink/docs/english/reading-materials.html",
+				"id": "67C819D5-CE46-4A6E-9DF4-B9FDA9777AF5"
+			},
+			{
+				"title": "Earthworm",
+				"url": "https://earthworm.cuixueshe.com/game/dkrnxty0j9z8qi4xpjrmlmwt/t6h7py4rwbj2jzfksput6cbt",
+				"id": "5EB7931D-4994-4B44-A7EA-707F9606F899"
+			},
+			{
+				"title": "主页 | Jayden's Pan",
+				"url": "https://pan.xxu.do/",
+				"id": "941E8DCE-D369-4AC1-A680-18E929D52D4F"
+			},
+			{
+				"title": "Home / X",
+				"url": "https://x.com/JinsFavorites/status/1823292041285263451/photo/1",
+				"id": "742A67EC-20C6-434C-A078-50425601F931"
+			},
+			{
+				"title": "Untitled Prompt",
+				"url": "https://aistudio.google.com/prompts/new_chat",
+				"id": "7246C89F-7446-44A2-8621-A4FA7D49067F"
+			},
+			{
+				"title": "2024-12 ARC TABS Tool",
+				"url": "https://www.notion.so/15d9655a93e080d8a691e66e53cbba74",
+				"id": "C8580E75-7C7C-4573-A9E3-D748710ED926"
+			},
+			{
+				"title": "Raycast API Overview",
+				"url": "https://developers.raycast.com/basics/create-your-first-extension",
+				"id": "EADC6DDE-BE94-4F24-8F28-DCF324ACEBF6"
+			},
+			{
+				"title": "React TypeScript Extensions",
+				"url": "https://www.raycast.com/developers",
+				"id": "D023AEE0-D2B5-42EF-9A24-443725073DBC"
+			},
+			{
+				"title": "Arc Extensions",
+				"url": "https://github.com/raycast/extensions/issues",
+				"id": "BD859368-0B3B-45AF-834F-9F676E0B51DB"
+			},
+			{
+				"title": "json 格式化 - Google Search",
+				"url": "https://www.google.com/search?q=json+%E6%A0%BC%E5%BC%8F%E5%8C%96&sourceid=chrome&ie=UTF-8",
+				"id": "C49D1E66-D4BB-4F31-AE3E-DD7DE843E442"
+			},
+			{
+				"title": "JavaScript/HTML格式化 - JSON中文网",
+				"url": "https://www.json.cn/js-format/",
+				"id": "9A43115D-74C2-42E4-BD91-50D2F8F59D4B"
+			}
+
+		]
+	}
+
+]

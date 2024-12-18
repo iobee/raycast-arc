@@ -6,7 +6,7 @@
   "icon": "icon.png",
   "author": "wangdong",
   "owner": "dong-s-home",
-  "access": "private",
+  "access": "public",
   "categories": [
     "Web",
     "Applications",

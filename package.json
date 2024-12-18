@@ -4,9 +4,9 @@
   "title": "Arc",
   "description": "Search and quickly navigate Arc's history and open tabs",
   "icon": "icon.png",
-  "author": "thomas",
+  "author": "wangdong",
   "owner": "dong-s-home",
-  "access": "public",
+  "access": "private",
   "categories": [
     "Web",
     "Applications",

@@ -4,7 +4,7 @@ import { groupBy } from "lodash";
 import { useState, useMemo } from "react";
 import Fuse from "fuse.js"; // Add this import
 import { pinyin } from "pinyin-pro";
-import { getTabs, getTabsWithSpaces } from "./arc";
+import { getTabsWithSpaces } from "./arc";
 import { TabListItem } from "./list";
 import { TabLocation, Tab } from "./types";
 import { getKey, getLocationTitle, getNumberOfTabs, getOrderedLocations } from "./utils";

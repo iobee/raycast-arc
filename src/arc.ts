@@ -309,70 +309,70 @@ export async function getTabsWithSpaces() {
 
 
   const responseWithSpaces = await runAppleScript(`
-on escape_value(this_text)
-    set AppleScript's text item delimiters to "\\\\"
-    set the item_list to every text item of this_text
-    set AppleScript's text item delimiters to "\\\\\\\\"
-    set this_text to the item_list as string
-    set AppleScript's text item delimiters to "\\""
-    set the item_list to every text item of this_text
-    set AppleScript's text item delimiters to "\\\\\\""
-    set this_text to the item_list as string
-    set AppleScript's text item delimiters to ""
-    return this_text
-end escape_value
-
-set _output to ""
-
-tell application "Arc"
-    if (count of windows) is 0 then
-        make new window
-    end if
-    set _space_index to 1
-    
-    repeat with _space in spaces of front window
-        set _space_title to my escape_value(get title of _space) -- 获取工作区标题
-        set _space_id to get id of _space -- 获取工作区 ID
-        set _tabs to properties of every tab of _space -- 获取标签页信息
+    on escape_value(this_text)
+        set AppleScript's text item delimiters to "\\\\"
+        set the item_list to every text item of this_text
+        set AppleScript's text item delimiters to "\\\\\\\\"
+        set this_text to the item_list as string
+        set AppleScript's text item delimiters to "\\""
+        set the item_list to every text item of this_text
+        set AppleScript's text item delimiters to "\\\\\\""
+        set this_text to the item_list as string
+        set AppleScript's text item delimiters to ""
+        return this_text
+    end escape_value
+      
+    set _output to ""
+      
+    tell application "Arc"
+        if (count of windows) is 0 then
+            make new window
+        end if
+        set _space_index to 1
         
-        set _tabs_output to ""
-        set _tab_index to 1
-        
-        repeat with _tab in _tabs
-            set _title to my escape_value(get title of _tab)
-            set _url to get URL of _tab
-            set _id to get id of _tab
-            set _location to get location of _tab
+        repeat with _space in spaces of front window
+            set _space_title to my escape_value(get title of _space) -- 获取工作区标题
+            set _space_id to get id of _space -- 获取工作区 ID
+            set _tabs to properties of every tab of _space -- 获取标签页信息
             
-            -- JSON 格式化，确保转义正确
-            set _tabs_output to (_tabs_output & "{ \\"id\\": \\"" & _id & "\\", \\"url\\": \\"" & _url & "\\", \\"title\\": \\"" & _title & "\\", \\"location\\": \\"" & _location & "\\", \\"space\\": { \\"id\\": \\"" & _space_id & "\\", \\"title\\": \\"" & _space_title & "\\" } }")
+            set _tabs_output to ""
+            set _tab_index to 1
             
-            if _tab_index < (count of _tabs) then
-                set _tabs_output to (_tabs_output & ",\\n")
+            repeat with _tab in _tabs
+                set _title to my escape_value(get title of _tab)
+                set _url to get URL of _tab
+                set _id to get id of _tab
+                set _location to get location of _tab
+                
+                -- JSON 格式化，确保转义正确
+                set _tabs_output to (_tabs_output & "{ \\"id\\": \\"" & _id & "\\", \\"url\\": \\"" & _url & "\\", \\"title\\": \\"" & _title & "\\", \\"location\\": \\"" & _location & "\\", \\"space\\": { \\"id\\": \\"" & _space_id & "\\", \\"title\\": \\"" & _space_title & "\\" } }")
+                
+                if _tab_index < (count of _tabs) then
+                    set _tabs_output to (_tabs_output & ",\\n")
+                end if
+                
+                set _tab_index to _tab_index + 1
+            end repeat
+            
+            if _tabs_output is not "" then
+                set _output to (_output & _tabs_output & ",\\n")
             end if
             
-            set _tab_index to _tab_index + 1
+            set _space_index to _space_index + 1
         end repeat
-        
-        if _tabs_output is not "" then
-            set _output to (_output & _tabs_output & ",\\n")
-        end if
-        
-        set _space_index to _space_index + 1
-    end repeat
-end tell
-
--- 移除输出末尾多余的逗号和换行符
-if _output ends with ",\\n" then
-    set _output to text 1 through -3 of _output
-end if
-
--- 包装为 JSON 数组
-return "[\\n" & _output & "\\n]"
+    end tell
+      
+    -- 移除输出末尾多余的逗号和换行符
+    if _output ends with ",\\n" then
+        set _output to text 1 through -3 of _output
+    end if
+      
+    -- 包装为 JSON 数组
+    return "[\\n" & _output & "\\n]"
   `);
 
-  let tabs = response ? (JSON.parse(response) as Tab[]) : undefined;
-  let tabsWithSpaces = responseWithSpaces ? (JSON.parse(responseWithSpaces) as Tab[]) : undefined;
+  const tabs = response ? (JSON.parse(response) as Tab[]) : undefined;
+  const tabsWithSpaces = responseWithSpaces ? (JSON.parse(responseWithSpaces) as Tab[]) : undefined;
 
   const mergeTabs = tabs?.map((tab) => {
     const tabWithSpace = tabsWithSpaces?.find((t) => t.id === tab.id);
